@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "IAP/**/*.{h,m}", "openssl/include/*.h"
+  spec.source_files  = "IAP/*.{h,m}"
   spec.exclude_files = "IAP/Local"
 
   spec.public_header_files = "IAP/IAP.h", "IAP/LocalReceiptValidator.h", "IAP/RMAppReceipt.h"
@@ -123,8 +123,8 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
   spec.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
-  # spec.private_header_files = 'IAP/openssl/include/*.h'
-  # spec.xcconfig = {"HEADER_SEARCH_PATHS" => "$(SRCROOT)/../IAP/openssl/include"}
+  spec.private_header_files = 'IAP/openssl/include/*.h'
+  spec.xcconfig = {"HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/IAP/openssl/include"}
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

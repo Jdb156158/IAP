@@ -21,6 +21,8 @@ target 'IAPDemo' do
   use_frameworks!
 
   pod 'IAP', :path => './'
+  # pod 'IAP', :git => 'https://github.com/wishWinds/IAP', :branch => 'master'
+  
   
   # Pods for IAP
 

@@ -70,8 +70,8 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
         NSString *validIdentifiers = [response.products bk_reduce:@"" withBlock:^NSString *(NSString *sum, SKProduct *obj) {
             return [sum stringByAppendingFormat:@"%@ ", obj.productIdentifier];
         }];
-        NSLog(@"[IAP] fetched valid product identifiers: %@", validIdentifiers);
-        NSLog(@"[IAP] fetched invalid product identifiers: %@", [response.invalidProductIdentifiers componentsJoinedByString:@" "]);
+        IAPLog(@"fetched valid product identifiers: %@", validIdentifiers);
+        IAPLog(@"[IAP] fetched invalid product identifiers: %@", [response.invalidProductIdentifiers componentsJoinedByString:@" "]);
         
         _products = response.products;
         if (success) {
@@ -80,11 +80,11 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
     }];
     
     [dynamicDelegate implementMethod:@selector(requestDidFinish:) withBlock:^(SKRequest *request) {
-        NSLog(@"[IAP] fetch product request has finished");
+        IAPLog(@"fetch product request has finished");
     }];
     
     [dynamicDelegate implementMethod:@selector(request:didFailWithError:) withBlock:^(SKRequest *request, NSError *error) {
-        NSLog(@"[IAP] fetch product request occours an error: %@", [error localizedDescription]);
+        IAPLog(@"fetch product request occours an error: %@", [error localizedDescription]);
         if (failed) {
             failed(error);
         }
@@ -145,8 +145,29 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
 }
 
 - (void)refreshReceipt {
+    [self refreshReceipt:nil];
+}
+
+
+- (void)refreshReceipt:(void (^)(NSError *error))complete {
     SKReceiptRefreshRequest *request = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties:nil];
-    request.delegate = self;
+    A2DynamicDelegate <SKRequestDelegate> *dynamicDelegate = [request bk_dynamicDelegate];
+    
+    [dynamicDelegate implementMethod:@selector(requestDidFinish:) withBlock:^(SKRequest *request) {
+        IAPLog(@"refresh receipt request has finished");
+        if (complete) {
+            complete(nil);
+        }
+    }];
+    
+    [dynamicDelegate implementMethod:@selector(request:didFailWithError:) withBlock:^(SKRequest *request, NSError *error) {
+        IAPLog(@"refresh receipt request occours an error: %@", [error localizedDescription]);
+        if (complete) {
+            complete(error);
+        }
+    }];
+    
+    request.delegate = dynamicDelegate;
     [request start];
 }
 
@@ -267,12 +288,23 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     RMAppReceipt *receipt = [RMAppReceipt bundleReceipt];
+    IAPLog(@"用户进行恢复操作, 已完成!");
     if (receipt == nil) {
         IAPLog(@"用户进行恢复操作, 但是没有找到recepit, 此处强制更新receipt");
-        [self refreshReceipt];
-
-        NSError *error = [NSError errorWithDomain:IAPErrorDomain code:IAPErrorCanNotFindReceipt userInfo:@{NSLocalizedDescriptionKey: @"can not find receipt"}];
-        [self.delegate restoredValidProductIdentifiers:nil error:error];
+        [self refreshReceipt:^(NSError *error) {
+            if (error) {
+                IAPLog(@"强制更新receipt失败, %@", [error localizedDescription]);
+                
+                NSError *error = [NSError errorWithDomain:IAPErrorDomain code:IAPErrorCanNotFindReceipt userInfo:@{NSLocalizedDescriptionKey: @"can not find receipt"}];
+                [self.delegate restoredValidProductIdentifiers:nil error:error];
+            } else {
+                IAPLog(@"强制更新receipt完成, 下面进行receipt校验...");
+                [self.validator validateAllProductInReceipt:receipt complete:^(NSSet<NSString *> *validProductIdentifiers, NSError *error) {
+                    IAPLog(@"恢复操作已完成, 已校验receipt, 并获取有效商品:%@, 错误:%@", validProductIdentifiers, error);
+                    [self.delegate restoredValidProductIdentifiers:validProductIdentifiers error:error];
+                }];
+            }
+        }];
     } else {
         IAPLog(@"获取到所有恢复的商品, 下面进行receipt校验...");
         [self.validator validateAllProductInReceipt:receipt complete:^(NSSet<NSString *> *validProductIdentifiers, NSError *error) {

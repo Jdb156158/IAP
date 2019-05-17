@@ -60,16 +60,17 @@
             [QMUITips showError:[error localizedDescription]];
         }
     } else {
+        [QMUITips showLoading:@"正在购买" inView:DefaultTipsParentView];
         self.timeout = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(timeoutFired:) userInfo:nil repeats:false];
     }
 }
 
 - (void)timerFIred:(id)timer {
-    [QMUITips showLoading:@"正在购买" inView:DefaultTipsParentView];
+    [QMUITips hideAllTipsInView:DefaultTipsParentView];
 }
 
 - (void)restore {
-    [QMUITips showLoading:@"正在恢复购买" inView:[[UIApplication sharedApplication] keyWindow]];
+    [QMUITips showLoading:@"正在恢复购买" inView:DefaultTipsParentView];
     [self.iap restoreAllPurchasedProductExceptConsumable];
 }
 
@@ -89,7 +90,7 @@
     [self.timeout invalidate];
     self.timeout = nil;
     
-    [QMUITips hideAllTipsInView:[[UIApplication sharedApplication] keyWindow]];
+    [QMUITips hideAllTipsInView:DefaultTipsParentView];
     if ([self typeForProduct:productIdentifier] == IAPProductTypeAutoRenewSubscription ) {
         SKProduct *product = [self.iap productForIdentifier:productIdentifier];
         [QMUITips showSucceed:[NSString stringWithFormat:@"您已成功购买/续订%@", product.localizedTitle]];
@@ -107,7 +108,7 @@
     [self.timeout invalidate];
     self.timeout = nil;
     
-    [QMUITips hideAllTipsInView:[[UIApplication sharedApplication] keyWindow]];
+    [QMUITips hideAllTipsInView:DefaultTipsParentView];
     // 真实环境下, 不需要显示toast
     [QMUITips showError:[NSString stringWithFormat:@"购买失败! %@", productIdentifier]];
     [[NSNotificationCenter defaultCenter] postNotificationName:kIAPDelegateFailed object:nil userInfo:@{@"obj": productIdentifier}];
@@ -117,7 +118,7 @@
     [self.timeout invalidate];
     self.timeout = nil;
     
-    [QMUITips hideAllTipsInView:[[UIApplication sharedApplication] keyWindow]];
+    [QMUITips hideAllTipsInView:DefaultTipsParentView];
     [QMUITips showSucceed:[NSString stringWithFormat:@"恢复所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
 
     [self saveAllProducts:productIdentifiers];
@@ -130,7 +131,7 @@
 }
 
 - (void)checkedValidProductIdentifiers:(NSSet<NSString *> *)productIdentifiers error:(NSError *)error {
-    [QMUITips hideAllTipsInView:[[UIApplication sharedApplication] keyWindow]];
+    [QMUITips hideAllTipsInView:DefaultTipsParentView];
     // 真实环境下, 不需要显示toast
     [QMUITips showSucceed:[NSString stringWithFormat:@"已验证所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
 

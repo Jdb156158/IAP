@@ -119,13 +119,17 @@
     self.timeout = nil;
     
     [QMUITips hideAllTipsInView:DefaultTipsParentView];
-    [QMUITips showSucceed:[NSString stringWithFormat:@"恢复所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
 
-    [self saveAllProducts:productIdentifiers];
-    
+    // 恢复 或者 验证失败
     if (error) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kIAPDelegateRestored object:nil userInfo:@{@"error": error}];
-    } else {
+        [QMUITips showError:[NSString stringWithFormat:@"恢复失败 :%@", [error localizedDescription]]];
+    }
+    // 恢复并且验证成功
+    else {
+        [QMUITips showSucceed:[NSString stringWithFormat:@"恢复所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
+
+        [self saveAllProducts:productIdentifiers];
         [[NSNotificationCenter defaultCenter] postNotificationName:kIAPDelegateRestored object:nil userInfo:@{@"obj": productIdentifiers}];
     }
 }
@@ -133,13 +137,17 @@
 - (void)checkedValidProductIdentifiers:(NSSet<NSString *> *)productIdentifiers error:(NSError *)error {
     [QMUITips hideAllTipsInView:DefaultTipsParentView];
     // 真实环境下, 不需要显示toast
-    [QMUITips showSucceed:[NSString stringWithFormat:@"已验证所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
 
-    [self saveAllProducts:productIdentifiers];
-    
+    // 验证失败
     if (error) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kIAPDelegateChecked object:nil userInfo:@{@"error": error}];
-    } else {
+        [QMUITips showError:[NSString stringWithFormat:@"验证失败 %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
+        
+    }
+    // 恢复并且验证成功
+    else {
+        [QMUITips showSucceed:[NSString stringWithFormat:@"已验证所有有效商品! %@", [[productIdentifiers allObjects] componentsJoinedByString:@"-"]]];
+        [self saveAllProducts:productIdentifiers];
         [[NSNotificationCenter defaultCenter] postNotificationName:kIAPDelegateChecked object:nil userInfo:@{@"obj": productIdentifiers}];
     }
 }

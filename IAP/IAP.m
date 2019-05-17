@@ -298,6 +298,7 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
                 NSError *error = [NSError errorWithDomain:IAPErrorDomain code:IAPErrorCanNotFindReceipt userInfo:@{NSLocalizedDescriptionKey: @"can not find receipt"}];
                 [self.delegate restoredValidProductIdentifiers:nil error:error];
             } else {
+                RMAppReceipt *receipt = [RMAppReceipt bundleReceipt];
                 IAPLog(@"强制更新receipt完成, 下面进行receipt校验...");
                 [self.validator validateAllProductInReceipt:receipt complete:^(NSSet<NSString *> *validProductIdentifiers, NSError *error) {
                     IAPLog(@"恢复操作已完成, 已校验receipt, 并获取有效商品:%@, 错误:%@", validProductIdentifiers, error);

@@ -75,7 +75,7 @@ NSString * const ReceiptValidatorErrorDomain = @"ReceiptValidatorErrorDomain";
             [set addObject:inAPPReceipt.productIdentifier];
         } else {
             // 找到同类商品中时间最新的一个
-            NSDate *findDate = productExpireDateDic[inAPPReceipt.transactionIdentifier];
+            NSDate *findDate = productExpireDateDic[inAPPReceipt.productIdentifier];
             if (findDate == nil) {
                 productExpireDateDic[inAPPReceipt.productIdentifier] = inAPPReceipt.subscriptionExpirationDate;
             } else {

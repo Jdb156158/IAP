@@ -287,7 +287,7 @@ PODS:
 DEPENDENCIES:
   - BlocksKit/Core
   - BlocksKit/DynamicDelegate
-  - IAP (from `https://github.com/wishWinds/IAP`, branch `podspec-test`)
+  - IAP (from `./`)
   - QMUIKit
   - SystemServices
   - UICKeyChainStore
@@ -301,13 +301,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   IAP:
-    :branch: podspec-test
-    :git: https://github.com/wishWinds/IAP
-
-CHECKOUT OPTIONS:
-  IAP:
-    :commit: 868c881817f18cb0dcae56125d8f7ad8955863f3
-    :git: https://github.com/wishWinds/IAP
+    :path: "./"
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
@@ -316,6 +310,6 @@ SPEC CHECKSUMS:
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
 
-PODFILE CHECKSUM: 551a4af7e689541612e6090d068d12ee0cbb0b1e
+PODFILE CHECKSUM: 290a0663c228392886ab70ef1ff7ee173e61a850
 
 COCOAPODS: 1.6.1

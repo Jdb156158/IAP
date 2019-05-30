@@ -55,15 +55,16 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
     
     SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
     A2DynamicDelegate <SKProductsRequestDelegate> *dynamicDelegate = [request bk_dynamicDelegate];
+    __weak __typeof(self)weakSelf = self;
     [dynamicDelegate implementMethod:@selector(productsRequest:didReceiveResponse:) withBlock:^(SKProductsRequest *request, SKProductsResponse *response) {
-        
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
         NSString *validIdentifiers = [response.products bk_reduce:@"" withBlock:^NSString *(NSString *sum, SKProduct *obj) {
             return [sum stringByAppendingFormat:@"%@ ", obj.productIdentifier];
         }];
         IAPLog(@"fetched valid product identifiers: %@", validIdentifiers);
         IAPLog(@"[IAP] fetched invalid product identifiers: %@", [response.invalidProductIdentifiers componentsJoinedByString:@" "]);
-        
-        _products = response.products;
+        // 需要显示声明引用自身变量. 且非setter方式.
+        strongSelf->_products = response.products;
         if (success) {
             success(response.products, [NSSet setWithArray:response.invalidProductIdentifiers]);
         }

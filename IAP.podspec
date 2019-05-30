@@ -123,7 +123,7 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
-  spec.xcconfig = {"HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/IAP/openssl/include"}
+  spec.xcconfig = {"HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/IAP/openssl/include"} # 让RMAppReceipt能够使用<>引用openssl文件
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -146,6 +146,6 @@ Pod::Spec.new do |spec|
   spec.subspec 'openssl' do |ss|
     ss.source_files  = "IAP/openssl/include/**/*.h"
     ss.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
-    ss.private_header_files = 'IAP/openssl/include/**/*.h'
+    ss.private_header_files = 'IAP/openssl/include/**/*.h' # 让openssl本身能够使用<>引用文件
   end
 end

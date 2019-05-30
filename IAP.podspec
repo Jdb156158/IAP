@@ -146,6 +146,6 @@ Pod::Spec.new do |spec|
   spec.subspec 'openssl' do |ss|
     ss.source_files  = "IAP/openssl/include/**/*.h"
     ss.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
-    # ss.private_header_files = 'IAP/openssl/include/**/*.h'
+    ss.private_header_files = 'IAP/openssl/include/**/*.h'
   end
 end

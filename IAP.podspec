@@ -91,7 +91,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "IAP/*.{h,m}", "IAP/openssl/include/**/*.h"
+  spec.source_files  = "IAP/*.{h,m}"
   spec.exclude_files = "IAP/Local"
 
   spec.public_header_files = "IAP/IAP.h", "IAP/LocalReceiptValidator.h", "IAP/RMAppReceipt.h"
@@ -144,7 +144,8 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'openssl' do |ss|
+    ss.source_files  = "IAP/openssl/include/**/*.h"
     ss.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
-    ss.private_header_files = 'IAP/openssl/include/**/*.h'
+    # ss.private_header_files = 'IAP/openssl/include/**/*.h'
   end
 end

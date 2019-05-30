@@ -120,8 +120,6 @@ NS_ERROR_ENUM(IAPErrorDomain)
  */
 - (id)initWithValidator:(id<ReceiptValidatorProtocol>)validator delegate:(id<IAPResultDelegate>)delegate;
 
-+ (instancetype)shared;
-
 
 /**
  销毁

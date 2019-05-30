@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IAP"
-  spec.version      = "1.2.1"
+  spec.version      = "1.2.2"
   spec.summary      = "IAP"
 
   # This description is used to generate tags and improve search results.
@@ -122,8 +122,7 @@ Pod::Spec.new do |spec|
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
-  spec.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
-  spec.private_header_files = 'IAP/openssl/include/**/*.h'
+
   spec.xcconfig = {"HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)/IAP/openssl/include"}
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -142,5 +141,10 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'IAPDelegateTempate' do |ss|
     ss.resource = 'IAP/IAPDelegateTemplate/*.{h,m}'
+  end
+  
+  spec.subspec 'openssl' do |ss|
+    ss.vendored_libraries = 'IAP/openssl/libcrypto.a', 'IAP/openssl/libssl.a'
+    ss.private_header_files = 'IAP/openssl/include/**/*.h'
   end
 end

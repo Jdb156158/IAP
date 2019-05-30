@@ -38,16 +38,6 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
     return self;
 }
 
-+ (instancetype)shared {
-    static id _sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[self alloc] init];
-    });
-
-    return _sharedInstance;
-}
-
 - (void)setup {
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     

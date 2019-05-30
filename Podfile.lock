@@ -1,7 +1,12 @@
 PODS:
   - BlocksKit/Core (2.2.5)
   - BlocksKit/DynamicDelegate (2.2.5)
-  - IAP (1.0):
+  - IAP (1.2.1):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - IAP/IAPDelegateTempate (= 1.2.1)
+    - SystemServices
+  - IAP/IAPDelegateTempate (1.2.1):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
     - SystemServices
@@ -295,7 +300,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  IAP: 228ddbccca31355d252f277482dc2afe757e2841
+  IAP: ad651d0c32ba33dcacb9fabd1496a3f370959d73
   QMUIKit: cd0757484a3a1bd3349a558a991c3df046a48c36
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f

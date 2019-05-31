@@ -30,11 +30,6 @@ NSString * const ReceiptValidatorErrorDomain = @"ReceiptValidatorErrorDomain";
         return error;
     }
     
-    if (![receipt.appVersion isEqualToString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]]) {
-        NSError *error = [NSError errorWithDomain:ReceiptValidatorErrorDomain code:ReceiptValidatorBundleVersionNotEqual userInfo:@{NSLocalizedDescriptionKey: @"recepit bundle version is not equal!"}];
-        return error;
-    }
-    
     if (![receipt verifyReceiptHash]) {
         NSError *error = [NSError errorWithDomain:ReceiptValidatorErrorDomain code:ReceiptValidatorHashNotEqual userInfo:@{NSLocalizedDescriptionKey: @"recepit hash is not equal!"}];
         return error;

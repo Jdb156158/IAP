@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IAP"
-  spec.version      = "1.2.3"
+  spec.version      = "1.2.4"
   spec.summary      = "IAP"
 
   # This description is used to generate tags and improve search results.

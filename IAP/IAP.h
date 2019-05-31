@@ -110,7 +110,12 @@ NS_ERROR_ENUM(IAPErrorDomain)
     IAPErrorCanNotFindReceipt
 };
 
-@interface IAP : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+
+
+/**
+ IAP内购
+ */
+@interface IAP : NSObject <SKPaymentTransactionObserver>
 /**
  初始化一个IAP manager
 

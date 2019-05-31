@@ -183,20 +183,6 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
 //    });
 }
 
-#pragma mark - request delegate
-- (void)requestDidFinish:(SKRequest *)request {
-    
-}
-
-- (void)request:(SKRequest *)request didFailWithError:(NSError *)error {
-    
-}
-
-#pragma mark - product request delegate
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-    
-}
-
 #pragma mark - transaction delegate
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions {
     [transactions bk_each:^(SKPaymentTransaction *transaction) {
@@ -274,7 +260,8 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
-    
+    IAPLog(@"用户进行恢复操作, 操作失败! : %@", [error localizedDescription]);
+    [self.delegate restoredValidProductIdentifiers:nil error:error];
 }
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
@@ -304,14 +291,6 @@ NSString * const IAPErrorDomain = @"IAPErrorDomain";
             [self.delegate restoredValidProductIdentifiers:validProductIdentifiers error:error];
         }];
     }
-}
-
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedDownloads:(NSArray<SKDownload *> *)downloads {
-    
-}
-
-- (BOOL)paymentQueue:(SKPaymentQueue *)queue shouldAddStorePayment:(SKPayment *)payment forProduct:(SKProduct *)product {
-    return true;
 }
 
 @end

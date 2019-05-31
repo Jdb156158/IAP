@@ -61,7 +61,7 @@
         }
     } else {
         [QMUITips showLoading:@"正在购买" inView:DefaultTipsParentView];
-        self.timeout = [NSTimer timerWithTimeInterval:60 target:self selector:@selector(timeoutFired:) userInfo:nil repeats:false];
+        self.timeout = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeoutFired:) userInfo:nil repeats:false];
     }
 }
 

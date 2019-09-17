@@ -571,24 +571,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IAPDemo/Pods-IAPDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SystemServices/SystemServices.framework",
-				"${BUILT_PRODUCTS_DIR}/IAP/IAP.framework",
-				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-IAPDemo/Pods-IAPDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SystemServices.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IAP.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-IAPDemo/Pods-IAPDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

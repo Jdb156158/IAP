@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,11 +14,8 @@
 		FE057BD9228C15DD00C01190 /* RMAppReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = FE057BD7228C15DD00C01190 /* RMAppReceipt.m */; };
 		FE057CD4228C295E00C01190 /* LocalReceiptValidator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE057BD1228C120800C01190 /* LocalReceiptValidator.h */; };
 		FE057CD5228C296800C01190 /* RMAppReceipt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE057BD8228C15DD00C01190 /* RMAppReceipt.h */; };
-		FE0CF1362294E85D00A3D0BD /* RMAppReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0CF1342294E85C00A3D0BD /* RMAppReceipt.m */; };
 		FE568728228D350200F2A196 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5686D8228D350100F2A196 /* libcrypto.a */; };
 		FE568729228D350200F2A196 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE568727228D350200F2A196 /* libssl.a */; };
-		FE7FD5292292450D00BF8433 /* IAP.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7FD5282292450D00BF8433 /* IAP.m */; };
-		FE7FD52A2292450D00BF8433 /* IAP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE7FD5272292450D00BF8433 /* IAP.h */; };
 		FE83BC1522890DAA00196D9A /* IAP.m in Sources */ = {isa = PBXBuildFile; fileRef = FE83BC1422890DAA00196D9A /* IAP.m */; };
 		FE83BC1622890DAA00196D9A /* IAP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE83BC1322890DAA00196D9A /* IAP.h */; };
 		FE83BC6B228AB42600196D9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE83BC6A228AB42600196D9A /* AppDelegate.m */; };
@@ -30,16 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FE7FD5232292450D00BF8433 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				FE7FD52A2292450D00BF8433 /* IAP.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FE83BC0E22890DAA00196D9A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,8 +54,6 @@
 		FE057BD2228C120800C01190 /* LocalReceiptValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalReceiptValidator.m; sourceTree = "<group>"; };
 		FE057BD7228C15DD00C01190 /* RMAppReceipt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMAppReceipt.m; sourceTree = "<group>"; };
 		FE057BD8228C15DD00C01190 /* RMAppReceipt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMAppReceipt.h; sourceTree = "<group>"; };
-		FE0CF1342294E85C00A3D0BD /* RMAppReceipt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMAppReceipt.m; sourceTree = "<group>"; };
-		FE0CF1352294E85D00A3D0BD /* RMAppReceipt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMAppReceipt.h; sourceTree = "<group>"; };
 		FE115E80228AE8E7004710CD /* LocalValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalValidator.h; sourceTree = "<group>"; };
 		FE115E81228AE8E7004710CD /* LocalValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalValidator.m; sourceTree = "<group>"; };
 		FE115E83228AF1D1004710CD /* ProductConsumableValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductConsumableValidator.h; sourceTree = "<group>"; };
@@ -153,9 +138,6 @@
 		FE568725228D350200F2A196 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
 		FE568726228D350200F2A196 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
 		FE568727228D350200F2A196 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		FE7FD5252292450D00BF8433 /* libIAP2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIAP2.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE7FD5272292450D00BF8433 /* IAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAP.h; sourceTree = "<group>"; };
-		FE7FD5282292450D00BF8433 /* IAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAP.m; sourceTree = "<group>"; };
 		FE83BC1022890DAA00196D9A /* libIAP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIAP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE83BC1322890DAA00196D9A /* IAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAP.h; sourceTree = "<group>"; };
 		FE83BC1422890DAA00196D9A /* IAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAP.m; sourceTree = "<group>"; };
@@ -180,13 +162,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FE7FD5222292450D00BF8433 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FE83BC0D22890DAA00196D9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,23 +328,11 @@
 			path = openssl;
 			sourceTree = "<group>";
 		};
-		FE7FD5262292450D00BF8433 /* IAP2 */ = {
-			isa = PBXGroup;
-			children = (
-				FE0CF1352294E85D00A3D0BD /* RMAppReceipt.h */,
-				FE0CF1342294E85C00A3D0BD /* RMAppReceipt.m */,
-				FE7FD5272292450D00BF8433 /* IAP.h */,
-				FE7FD5282292450D00BF8433 /* IAP.m */,
-			);
-			path = IAP2;
-			sourceTree = "<group>";
-		};
 		FE83BC0722890DAA00196D9A = {
 			isa = PBXGroup;
 			children = (
 				FE83BC1222890DAA00196D9A /* IAP */,
 				FE83BC68228AB42600196D9A /* IAPDemo */,
-				FE7FD5262292450D00BF8433 /* IAP2 */,
 				FE83BC1122890DAA00196D9A /* Products */,
 				B96E06D391B1B22E1F18D5FF /* Pods */,
 				C8585DD1EECC1A16686E6651 /* Frameworks */,
@@ -381,7 +344,6 @@
 			children = (
 				FE83BC1022890DAA00196D9A /* libIAP.a */,
 				FE83BC67228AB42600196D9A /* IAPDemo.app */,
-				FE7FD5252292450D00BF8433 /* libIAP2.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -435,23 +397,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FE7FD5242292450D00BF8433 /* IAP2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FE7FD52D2292450D00BF8433 /* Build configuration list for PBXNativeTarget "IAP2" */;
-			buildPhases = (
-				FE7FD5212292450D00BF8433 /* Sources */,
-				FE7FD5222292450D00BF8433 /* Frameworks */,
-				FE7FD5232292450D00BF8433 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = IAP2;
-			productName = IAP2;
-			productReference = FE7FD5252292450D00BF8433 /* libIAP2.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		FE83BC0F22890DAA00196D9A /* IAP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE83BC1922890DAA00196D9A /* Build configuration list for PBXNativeTarget "IAP" */;
@@ -498,9 +443,6 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = shupeng;
 				TargetAttributes = {
-					FE7FD5242292450D00BF8433 = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
 					FE83BC0F22890DAA00196D9A = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -524,7 +466,6 @@
 			targets = (
 				FE83BC0F22890DAA00196D9A /* IAP */,
 				FE83BC66228AB42600196D9A /* IAPDemo */,
-				FE7FD5242292450D00BF8433 /* IAP2 */,
 			);
 		};
 /* End PBXProject section */
@@ -607,15 +548,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FE7FD5212292450D00BF8433 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE7FD5292292450D00BF8433 /* IAP.m in Sources */,
-				FE0CF1362294E85D00A3D0BD /* RMAppReceipt.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FE83BC0C22890DAA00196D9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,32 +591,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FE7FD52B2292450D00BF8433 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TAXNVNJP42;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FE7FD52C2292450D00BF8433 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TAXNVNJP42;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		FE83BC1722890DAA00196D9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -905,15 +811,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FE7FD52D2292450D00BF8433 /* Build configuration list for PBXNativeTarget "IAP2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE7FD52B2292450D00BF8433 /* Debug */,
-				FE7FD52C2292450D00BF8433 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FE83BC0B22890DAA00196D9A /* Build configuration list for PBXProject "IAP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

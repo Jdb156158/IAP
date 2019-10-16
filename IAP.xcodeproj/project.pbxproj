@@ -24,6 +24,7 @@
 		FE83BC73228AB42700196D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE83BC72228AB42700196D9A /* Assets.xcassets */; };
 		FE83BC76228AB42700196D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE83BC74228AB42700196D9A /* LaunchScreen.storyboard */; };
 		FE83BC79228AB42700196D9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE83BC78228AB42700196D9A /* main.m */; };
+		FEE2964723323C1100481A04 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE2964623323C1100481A04 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,25 @@
 				FE057CD5228C296800C01190 /* RMAppReceipt.h in CopyFiles */,
 				FE057CD4228C295E00C01190 /* LocalReceiptValidator.h in CopyFiles */,
 				FE83BC1622890DAA00196D9A /* IAP.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE296382332348700481A04 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE2963B2332349E00481A04 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +179,8 @@
 		FE83BC82228AB55B00196D9A /* TransactionPersistanceObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionPersistanceObj.m; sourceTree = "<group>"; };
 		FE83BC85228AB5CD00196D9A /* KeychainStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainStorage.h; sourceTree = "<group>"; };
 		FE83BC86228AB5CD00196D9A /* KeychainStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainStorage.m; sourceTree = "<group>"; };
+		FEE2963D2332349E00481A04 /* libIAP2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIAP2.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEE2964623323C1100481A04 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0ADAD3B54B9A1CFF9836A4 /* Pods_IAPDemo.framework in Frameworks */,
+				FEE2964723323C1100481A04 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE2963A2332349E00481A04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +227,7 @@
 		C8585DD1EECC1A16686E6651 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEE2964623323C1100481A04 /* StoreKit.framework */,
 				BA7AEC41A5CD92EA12518E11 /* Pods_IAP.framework */,
 				D3FFE08F10CD6D732AA46284 /* Pods_IAPDemo.framework */,
 			);
@@ -333,6 +364,7 @@
 			children = (
 				FE83BC1222890DAA00196D9A /* IAP */,
 				FE83BC68228AB42600196D9A /* IAPDemo */,
+				FEE2963E2332349E00481A04 /* IAP2 */,
 				FE83BC1122890DAA00196D9A /* Products */,
 				B96E06D391B1B22E1F18D5FF /* Pods */,
 				C8585DD1EECC1A16686E6651 /* Frameworks */,
@@ -344,6 +376,7 @@
 			children = (
 				FE83BC1022890DAA00196D9A /* libIAP.a */,
 				FE83BC67228AB42600196D9A /* IAPDemo.app */,
+				FEE2963D2332349E00481A04 /* libIAP2.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -394,6 +427,13 @@
 			path = Local;
 			sourceTree = "<group>";
 		};
+		FEE2963E2332349E00481A04 /* IAP2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IAP2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +464,7 @@
 				FE83BC64228AB42600196D9A /* Frameworks */,
 				FE83BC65228AB42600196D9A /* Resources */,
 				75FE9408AC512C2184A50744 /* [CP] Embed Pods Frameworks */,
+				FEE296382332348700481A04 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -433,6 +474,23 @@
 			productName = IAPDemo;
 			productReference = FE83BC67228AB42600196D9A /* IAPDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FEE2963C2332349E00481A04 /* IAP2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEE296432332349E00481A04 /* Build configuration list for PBXNativeTarget "IAP2" */;
+			buildPhases = (
+				FEE296392332349E00481A04 /* Sources */,
+				FEE2963A2332349E00481A04 /* Frameworks */,
+				FEE2963B2332349E00481A04 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IAP2;
+			productName = IAP2;
+			productReference = FEE2963D2332349E00481A04 /* libIAP2.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -448,6 +506,17 @@
 					};
 					FE83BC66228AB42600196D9A = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					FEE2963C2332349E00481A04 = {
+						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
@@ -465,6 +534,7 @@
 			projectRoot = "";
 			targets = (
 				FE83BC0F22890DAA00196D9A /* IAP */,
+				FEE2963C2332349E00481A04 /* IAP2 */,
 				FE83BC66228AB42600196D9A /* IAPDemo */,
 			);
 		};
@@ -566,6 +636,13 @@
 				FE83BC79228AB42700196D9A /* main.m in Sources */,
 				FE83BC6B228AB42600196D9A /* AppDelegate.m in Sources */,
 				FE057BD0228C0D9F00C01190 /* IAPDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEE296392332349E00481A04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +885,32 @@
 			};
 			name = Release;
 		};
+		FEE296442332349E00481A04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TAXNVNJP42;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEE296452332349E00481A04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TAXNVNJP42;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -834,6 +937,15 @@
 			buildConfigurations = (
 				FE83BC7B228AB42700196D9A /* Debug */,
 				FE83BC7C228AB42700196D9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEE296432332349E00481A04 /* Build configuration list for PBXNativeTarget "IAP2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE296442332349E00481A04 /* Debug */,
+				FEE296452332349E00481A04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
